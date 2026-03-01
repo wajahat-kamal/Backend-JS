@@ -1,6 +1,5 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
-import { sendResponse } from './sendResponse.js';
 
 export async function serveStatic(baseDir) {
 
@@ -8,10 +7,9 @@ export async function serveStatic(baseDir) {
 
     try {
         const content = await fs.readFile(filePath)
+        return content
     } catch (error) {
         console.log(error);
     }
 
-
-    return sendResponse(res, 200, "text/html", content)
 }
