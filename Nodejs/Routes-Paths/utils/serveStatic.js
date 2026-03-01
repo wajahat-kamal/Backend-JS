@@ -4,7 +4,7 @@ import { sendResponse } from './sendResponse.js'
 
 export async function serveStatic(req, res,baseDir) {
 
-    const filePath = path.join(baseDir, 'public',  req.url)
+    const filePath = path.join(baseDir, 'public',  req.url === "/" ? "index.html" : req.url)
 
     try {
         const content = await fs.readFile(filePath)
