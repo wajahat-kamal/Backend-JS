@@ -1,6 +1,7 @@
 import http from "node:http"
 import path from "node:path";
 import fs from "node:fs/promises";
+import { sendResponse } from "./utils";
 
 const PORT = 8000
 const __dirname = import.meta.dirname;
@@ -17,8 +18,7 @@ const server = http.createServer(async (req, res) => {
     }
     
 
-    res.writeHead(200, { "Content-Type": "text/html" })
-    res.end()
+    sendResponse(res, 200, "text/html", content)
     // }
 })
 
