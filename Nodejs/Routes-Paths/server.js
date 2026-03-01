@@ -1,5 +1,6 @@
 import http from "node:http"
-import { serveStatic } from "./utils.js";
+import path from "node:path";
+import fs from "node:fs/promises";
 
 const PORT = 8000
 const __dirname = import.meta.dirname;
@@ -7,11 +8,11 @@ const __dirname = import.meta.dirname;
 const server = http.createServer(async (req, res) => {
     // if (req.url === "/" && req.method === "GET") {
 
-        serveStatic(__dirname)
+    const filePath = path.join(__dirname, "public", "index.html")
+    const content = await fs.readFile(filePath, "utf-8")
 
-        res.writeHead(200, { "Content-Type": "text/html" })
-        const heading = `<html><h1>The Server is Working!</h1></html>`
-        res.end(heading)
+    res.writeHead(200, { "Content-Type": "text/html" })
+    res.end(content)
     // }
 })
 
