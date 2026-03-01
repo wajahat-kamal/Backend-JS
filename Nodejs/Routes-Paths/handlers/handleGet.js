@@ -1,7 +1,8 @@
 import { getData } from "../utils/getData.js"
+import { sendResponse } from "../utils/sendResponse.js"
 
 export function handleGet() {
     const data = getData()
-    const result = JSON.stringify(data)
-    return result
+    const jsonData = JSON.stringify(data)
+    sendResponse(res, 200, "text/html", jsonData)
 }
