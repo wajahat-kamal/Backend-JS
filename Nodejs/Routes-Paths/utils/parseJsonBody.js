@@ -1,7 +1,14 @@
 export async function parseJsonBody(req) {
-    const body = ''
-    for (const chunk of req) {
-        body += chunk
+    let body = '';
+
+    try {
+        for await (const chunk of req) {
+            body += chunk;
+        }
+
+        return JSON.parse(body);
+
+    } catch (err) {
+        throw new Error(`Invalid JSON format: ${err}`);
     }
-    return body
 }
