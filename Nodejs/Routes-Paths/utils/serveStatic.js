@@ -9,7 +9,7 @@ export async function serveStatic(req, res, baseDir) {
 
     try {
         const content = await fs.readFile(filePath)
-        // const ext = path.extname(filePath)
+        const ext = path.extname(filePath)
         const contentType = getContentType(ext)
         sendResponse(res, 200, contentType, content)
     } catch (error) {
