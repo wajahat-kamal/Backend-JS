@@ -5,12 +5,9 @@ export async function getData() {
     try {
         const data = await fs.readFile(path.join(import.meta.dirname, "data", "data.json"), "utf8")
         const result = JSON.parse(data)
-        console.log(resul);
-
         return result
     } catch (error) {
         console.log(error);
     }
 
 }
-getData()
