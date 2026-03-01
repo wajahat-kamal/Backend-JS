@@ -1,8 +1,8 @@
 const form = document.getElementById("eventForm")
 const formMessageText = document.getElementsByClassName("form-message-text")[0]
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+form.addEventListener("submit", async function (event) {
+    event.preventDefault()
 
     const location = document.getElementById("location").value
     const text = document.getElementById("details").value
@@ -19,40 +19,41 @@ form.addEventListener("submit", async (e) => {
         formMessageText.textContent = "Please select a date and time!"
         return
     }
-
+    // Convert the string to a JavaScript Date object
     const date = new Date(isoDateString)
+    // Format the date to a readable string
     const options = {
         year: "numeric",
         month: "long",
         day: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-        hour12: false, form
+        hour12: false,
     }
-
     const readableDate = date.toLocaleString("en-GB", options)
 
     const formData = {
+        location: location,
         timeStamp: readableDate,
-        text,
-        title,
-        location,
+        text: text,
+        title: title,
     }
 
     try {
+        // Send form data using fetch API
         formMessageText.textContent = ""
-        const res = await fetch("/api", {
+        const response = await fetch("./api", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
         })
-        if (res.ok) {
+        if (response.ok) {
             formMessageText.innerHTML = `Your sighting was uploaded. View it <a href="./sightings.html">here</a>.`;
             form.reset()
         } else {
-            formMessageText.innerHTML = `The server Ghosted you(!). Please try again.`
+            formMessageText.textContent = `The server Ghosted you(!). Please try again.`
             console.error("Server Error:", response.statusText)
         }
     } catch (error) {
@@ -60,3 +61,4 @@ form.addEventListener("submit", async (e) => {
         console.error("Error:", error)
     }
 })
+
