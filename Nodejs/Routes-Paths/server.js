@@ -5,7 +5,6 @@ import { handleGet } from "./handlers/handleGet.js";
 const PORT = 8000
 const __dirname = import.meta.dirname;
 
-
 const server = http.createServer(async (req, res) => {
     // if (req.url === "/" && req.method === "GET") {
     if (req.url.startsWith("/api")) {
