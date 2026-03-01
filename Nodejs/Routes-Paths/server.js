@@ -9,10 +9,16 @@ const server = http.createServer(async (req, res) => {
     // if (req.url === "/" && req.method === "GET") {
 
     const filePath = path.join(__dirname, "public", "index.html")
-    const content = await fs.readFile(filePath, "utf-8")
+
+    try {
+        const content = await fs.readFile(filePath)
+    } catch (error) {
+        console.log(error);
+    }
+    
 
     res.writeHead(200, { "Content-Type": "text/html" })
-    res.end(content)
+    res.end()
     // }
 })
 
