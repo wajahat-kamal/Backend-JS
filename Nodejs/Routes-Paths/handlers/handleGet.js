@@ -1,4 +1,4 @@
-import { getData } from "../utils/getData"
+import { getData } from "../utils/getData.js"
 
 export function handleGet() {
     const data = getData()
