@@ -8,8 +8,7 @@ const __dirname = import.meta.dirname;
 
 const server = http.createServer(async (req, res) => {
     // if (req.url === "/" && req.method === "GET") {
-    const data = await getData()
-    console.log(data)
+    
     await serveStatic(req, res, __dirname)
 
     // }
