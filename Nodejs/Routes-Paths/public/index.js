@@ -30,8 +30,9 @@ document.querySelector(".cards-container").addEventListener("click", (e) => {
 
     const button = e.target
     const sightingCard = button.closest(".sighting-card")
-    const isExpanded = sightingCard.classList.toggle(".expanded")
+    const isExpanded = sightingCard.classList.toggle("expanded")
+  
 
     button.setAttribute("aria-expanded", isExpanded ? "true" : "false")
-    button.textContent = isExpanded ? "Show Less" : "Read in full"
+    button.textContent = isExpanded ? "Show less" : "Read in full"
 })
