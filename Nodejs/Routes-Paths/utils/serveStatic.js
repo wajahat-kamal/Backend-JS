@@ -1,5 +1,6 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
+import { sendResponse } from './sendResponse';
 
 export async function serveStatic(baseDir) {
 
@@ -12,5 +13,5 @@ export async function serveStatic(baseDir) {
     }
 
 
-    sendResponse(res, 200, "text/html", content)
+    return sendResponse(res, 200, "text/html", content)
 }

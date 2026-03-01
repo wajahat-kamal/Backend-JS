@@ -1,7 +1,5 @@
 import http from "node:http"
-import path from "node:path";
-import fs from "node:fs/promises";
-import { sendResponse } from "./utils/sendResponse";
+import { serveStatic } from "./utils/serveStatic";
 
 const PORT = 8000
 const __dirname = import.meta.dirname;
@@ -9,16 +7,7 @@ const __dirname = import.meta.dirname;
 const server = http.createServer(async (req, res) => {
     // if (req.url === "/" && req.method === "GET") {
 
-    const filePath = path.join(__dirname, "public", "index.html")
-
-    try {
-        const content = await fs.readFile(filePath)
-    } catch (error) {
-        console.log(error);
-    }
-    
-
-    sendResponse(res, 200, "text/html", content)
+   serveStatic(__dirname)
     // }
 })
 
