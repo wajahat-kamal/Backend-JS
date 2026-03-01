@@ -13,6 +13,10 @@ export async function serveStatic(req, res, baseDir) {
         const contentType = getContentType(ext)
         sendResponse(res, 200, contentType, content)
     } catch (error) {
+        if (error.code === "ENOENT") {
+            const content = `<html><h1>Server Error: ${err.code}</h1></html>`
+            sendResponse(res, 404, "text/html", content)
+        }
         console.log(error);
     }
 
