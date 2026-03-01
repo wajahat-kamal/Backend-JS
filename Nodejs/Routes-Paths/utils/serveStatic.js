@@ -1,6 +1,6 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
-import { sendResponse } from './sendResponse';
+import { sendResponse } from './sendResponse.js';
 
 export async function serveStatic(baseDir) {
 
