@@ -1,6 +1,6 @@
 import http from "node:http"
 import { serveStatic } from "./utils/serveStatic.js";
-import { handleGet } from "./handlers/handlers.js";
+import { handleGet, handlePost } from "./handlers/handlers.js";
 
 const PORT = 8000
 const __dirname = import.meta.dirname;
