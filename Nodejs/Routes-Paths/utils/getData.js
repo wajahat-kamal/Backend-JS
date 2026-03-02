@@ -3,9 +3,10 @@ import path from 'node:path';
 
 export async function getData() {
     try {
-        const data = await fs.readFile(path.join("data", "data.json"), "utf8")
-        const result = JSON.parse(data)
-        return result
+        const pathJSON = path.join('data', 'data.json')
+        const data = await fs.readFile(pathJSON, 'utf8')
+        const parsedData = JSON.parse(data)
+        return parsedData
     } catch (error) {
         console.log(error);
         return [];
