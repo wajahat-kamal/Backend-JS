@@ -1,20 +1,23 @@
 import fs from "node:fs/promises"
 import path from "node:path"
-import { getData } from "./getData"
+import { getData } from "./getData.js"
 
 export async function addNewSighting(newSighting) {
+    const pathJSON = path.join("data", "data.json")
+
     try {
         const sightings = await getData()
         sightings.push(newSighting)
 
-        const pathJSON = path.join('data', 'data.json')
-
         await fs.writeFile(
             pathJSON,
-            JSON.stringify(sightings),
-            'utf8'
+            JSON.stringify(sightings, null, 2),
+            "utf8"
         )
+
+        return newSighting
+
     } catch (error) {
-        throw new Error("File read error:", error)
+        throw error
     }
 }
