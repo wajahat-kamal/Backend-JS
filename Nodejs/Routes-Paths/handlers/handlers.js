@@ -11,7 +11,7 @@ export async function handleGet(res) {
 
 export async function handlePost(req, res) {
     try {
-        const parsedBody = await parseJSONBody(req)
+        const parsedBody = await parseJsonBody(req)
         await addNewSighting(parsedBody)
         sendResponse(res, 201, 'application/json', JSON.stringify(parsedBody))
     } catch (err) {
