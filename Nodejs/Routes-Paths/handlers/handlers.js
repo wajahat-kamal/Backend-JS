@@ -10,7 +10,12 @@ export async function handleGet(res) {
 }
 
 export async function handlePost(req, res) {
-    const parsedBody = await parseJsonBody(req)
-    addNewSighting(parsedBody)
+    try {
+        const parsedBody = await parseJSONBody(req)
+        await addNewSighting(parsedBody)
+        sendResponse(res, 201, 'application/json', JSON.stringify(parsedBody))
+    } catch (err) {
+        sendResponse(res, 400, 'application/json', JSON.stringify({ error: err }))
+    }
 }
 
