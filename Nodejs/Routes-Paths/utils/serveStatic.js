@@ -5,7 +5,7 @@ import { getContentType } from './getContentType.js'
 
 export async function serveStatic(req, res, baseDir) {
 
-    const filePath = path.join(baseDir, 'public', req.url === "/" ? "index.html" : req.url)
+    const filePath = path.join(baseDir, 'public', req.url === "/" ? "index.html" : req.url.replace(/^\/+/, ""))
 
     try {
         const content = await fs.readFile(filePath)
@@ -17,7 +17,7 @@ export async function serveStatic(req, res, baseDir) {
             const content = await fs.readFile(path.join(baseDir, "public", "404.html"))
             sendResponse(res, 404, "text/html", content)
         } else {
-            const content = `<html><h1>Server Error: ${err.code}</h1></html>`
+            const content = `<html><h1>Server Error: ${error.code}</h1></html>`
             sendResponse(res, 500, "text/html", content)
         }
         console.log(error);

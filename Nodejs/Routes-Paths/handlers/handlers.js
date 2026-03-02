@@ -30,7 +30,7 @@ export async function handleNews(req, res) {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
         "Connection": "keep-alive"
-    })
+    });
 
     setInterval(() => {
         let randomIndex = Math.floor(Math.random() * stories.length)
