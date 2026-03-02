@@ -6,6 +6,7 @@ export async function addNewSighting(newSighting) {
     const pathJSON = path.join("data", "data.json")
 
     try {
+
         const sightings = await getData()
         sightings.push(newSighting)
 
@@ -20,4 +21,8 @@ export async function addNewSighting(newSighting) {
     } catch (error) {
         throw error
     }
+}
+
+async function sanitize(dirtyHtml) {
+    return 
 }
