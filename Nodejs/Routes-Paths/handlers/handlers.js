@@ -24,5 +24,9 @@ export async function handlePost(req, res) {
 }
 
 export async function handleNews(req, res) {
-    
+    res.writeHead(200, {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive"
+    })
 }
