@@ -11,7 +11,7 @@ const server = http.createServer(async (req, res) => {
             return handleGet(res)
 
         } else if (req.url === "POST") {
-            // return handlePost(req, res)
+            return handlePost(req, res)
         }
     } else if (!req.url.startsWith('/api')) {
         return await serveStatic(req, res, __dirname)
