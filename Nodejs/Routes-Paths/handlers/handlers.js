@@ -23,3 +23,6 @@ export async function handlePost(req, res) {
     }
 }
 
+export async function handleNews(req, res) {
+    
+}
