@@ -1,3 +1,4 @@
+import { stories } from "../data/stories.js";
 import { sightingEvents } from "../eents/sighting-event.js";
 import { addNewSighting } from "../utils/addNewSighting.js";
 import { getData } from "../utils/getData.js";
@@ -24,9 +25,19 @@ export async function handlePost(req, res) {
 }
 
 export async function handleNews(req, res) {
+
     res.writeHead(200, {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
         "Connection": "keep-alive"
     })
+
+    setInterval(() => {
+        let randomIndex = Math.floor(Math.random() * stories.length)
+        const message = {
+            event: "new-update",
+            story: stories[randomIndex]
+        }
+        res.write(`data: ${JSON.stringify(message)}\n\n`)
+    }, 3000);
 }
