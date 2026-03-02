@@ -1,13 +1,11 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 import { getData } from "./getData.js"
-import sanitize from "sanitize-html"
-
 export async function addNewSighting(newSighting) {
     const pathJSON = path.join("data", "data.json")
     try {
         const sightings = await getData()
-        sightings.push(sanitizeData)
+        sightings.push(newSighting)
 
         await fs.writeFile(
             pathJSON,
