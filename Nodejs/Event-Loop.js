@@ -1,11 +1,25 @@
-// what is event loop in nodejs
+// What is Event Loop in Node.js?
 
 /*
-Event loop ik mechanism hai jo nodejs ko non-blocking banata hia, yani aggar koi heavy task ajai to nodejs
-ose background me shift karta hai take main kaam nahi ruke aur app fast chale.
+Event Loop Node.js ka core mechanism hai jo asynchronous
+aur non-blocking execution ko possible banata hai.
 
-1. nodejs ik waqat me ik kaam karsakta hai isliye event loop ik manager ki tara kaam karta hai.
-2. aggar koi heavy task ajata hai jaise database se data read karna to nodejs ose background me karke agla kaam shoro karta hai.
+Node.js single-threaded hota hai, yani ek waqt me
+sirf ek kaam call stack par execute karta hai.
+
+Lekin jab koi asynchronous task aata hai (jaise timer,
+file system, database call, API request), to Node.js
+us task ko OS ya libuv ko delegate kar deta hai.
+
+Jab wo task complete ho jata hai, uska callback
+event loop ki queue me add ho jata hai.
+
+Event loop continuously:
+1. Call stack check karta hai (khaali hai ya nahi)
+2. Phir queues se callbacks uthata hai
+3. Aur unhe execute karta hai
+
+Isi wajah se Node.js non-blocking behave karta hai.
 */
 
 
@@ -17,4 +31,3 @@ setInterval(() => {
 
 console.log("3");
 console.log("4");
-
