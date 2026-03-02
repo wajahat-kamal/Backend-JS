@@ -1,9 +1,7 @@
+import { addNewSighting } from "../utils/addNewSighting.js";
 import { getData } from "../utils/getData.js";
 import { parseJsonBody } from "../utils/parseJsonBody.js";
 import { sendResponse } from "../utils/sendResponse.js";
-
-import fs from 'node:fs/promises'
-import path from 'node:path';
 
 export async function handleGet(res) {
     const data = await getData()
@@ -12,11 +10,7 @@ export async function handleGet(res) {
 }
 
 export async function handlePost(req, res) {
-    const rawBody = await parseJsonBody(req)
-    const data = await fs.readFile(path.join("data", "data.json"), "utf8")
-    
-    console.log(rawBody);
-    console.log(JSON.parse(data));
-    
+    const parsedBody = await parseJsonBody(req)
+    addNewSighting(parsedBody)
 }
 
