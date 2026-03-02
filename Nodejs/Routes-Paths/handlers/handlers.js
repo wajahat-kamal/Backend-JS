@@ -34,10 +34,9 @@ export async function handleNews(req, res) {
 
     setInterval(() => {
         let randomIndex = Math.floor(Math.random() * stories.length)
-        const message = {
+        res.write(`data: ${JSON.stringify({
             event: "new-update",
             story: stories[randomIndex]
-        }
-        res.write(`data: ${JSON.stringify(message)}\n\n`)
+        })}\n\n`)
     }, 3000);
 }
