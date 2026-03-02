@@ -25,7 +25,7 @@ Isi wajah se Node.js non-blocking behave karta hai.
 
 console.log("1");
 
-setInterval(() => {
+setTimeout(() => {
     console.log("2");
 }, 2000);
 
