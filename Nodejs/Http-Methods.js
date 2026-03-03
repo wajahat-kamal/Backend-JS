@@ -15,12 +15,17 @@ import http from "node:http"
 const server = http.createServer((req, res) => {
     if (req.url === "/user" && req.method === "GET") {
         res.end("User")
+
     } else if (req.url === "/create-user" && req.method === "POST") {
         res.end("User created")
-    } else if (req.url === "/update-user/1" && req.method === "PUT") {
+
+    } else if (req.url === "/update-user/:id" && req.method === "PUT") {
         res.end("User updated")
-    } else if (req.url === "/delete-user/1" && req.method === "DELETE") {
+
+    } else if (req.url === "/delete-user/:id" && req.method === "DELETE") {
         res.end("User deleted")
+    } else {
+        res.end("Not Found")
     }
 })
-server.listen(5000, () => console.log("Server runing on port 5000"))
+// server.listen(5000, () => console.log("Server runing on port 5000"))
