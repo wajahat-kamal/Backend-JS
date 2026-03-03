@@ -13,12 +13,20 @@ readdir()	  Folder ke files read
 
 // Modern + Recommended
 import fs from "node:fs/promises"
+import path from "node:path"
+
+// create folder
+await fs.mkdir("files", {recursive: true})
 
 // create file
-await fs.writeFile("test.txt", "Hi, Iam Nodejs!")
+await fs.writeFile("files/test.txt", "Hi, Iam Nodejs!")
 
 // append file
-const appendFile = await fs.appendFile("test.txt", "Hi, iam wajahat kamal and iam learning nodejs.")
+await fs.appendFile("files/test.txt", " Hi, iam wajahat kamal and iam learning nodejs.")
 
-const readFile = await fs.readFile("test.txt", "utf8")
-console.log(readFile);
+// delete file
+// await fs.unlink("test.txt")
+
+
+// const readFile = await fs.readFile("test.txt", "utf8")
+// console.log(readFile);
