@@ -1,3 +1,13 @@
 // What is HTTP Methods
 
-// HTTP methods batate hain ke client server par kaunsa operation perform karna chahta hai — create, read, update ya delete.
+/*
+HTTP methods batate hain ke client server par kaunsa operation perform karna chahta hai — create, read, update ya delete.
+
+GET → Read
+POST → Create
+PUT → Update
+DELETE → Remove
+(CRUD operations)
+*/
+
+import http from "node:http"
