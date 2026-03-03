@@ -33,9 +33,11 @@ const filePath = path.join(process.cwd(), "files", "test.txt")
 import http from "node:http"
 
 const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json")
-    res.write("Hello, iam from nodejs!")
-    res.end()
+    if (req.url === "/" && req.method === "GET") {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/json")
+        res.write("Hello, iam from nodejs!")
+        res.end()
+    }
 })
 // server.listen(5000, () => console.log("Server running on port 5000!"))
