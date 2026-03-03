@@ -1,4 +1,4 @@
-// What is promises
+// What is promises & async await & promise.all
 
 /*
 Promise ek object hota hai jo future me milne wali value ko represent karta hai.
@@ -18,7 +18,7 @@ function promise() {
     })
 }
 // .then & catch method
-promise().then((data) => console.log(data)).catch((err) => console.log(err))
+// promise().then((data) => console.log(data)).catch((err) => console.log(err))
 
 // what is async/await
 // async/await Promise ko handle karne ka clean aur readable tareeqa hai.
@@ -31,4 +31,18 @@ async function run() {
         console.error(err);
     }
 }
-run()
+// run()
+
+
+// what is promise.all
+/*
+Promise.all multiple promises ko ik sath leta hai aur sab ka resolve hone ka wait karta hai. lekin aggar ik be promise reject hojai to sab promises reject hojate hia
+*/
+
+const promise1 = Promise.resolve("Users")
+const promise2 = Promise.resolve("Posts")
+const promise3 = Promise.resolve("Comments")
+
+Promise.all([promise1, promise2, promise3])
+    .then((result) => console.log(result))
+    .catch((err) => console.log(err))
