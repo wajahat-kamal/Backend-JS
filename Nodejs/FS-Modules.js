@@ -17,6 +17,8 @@ import fs from "node:fs/promises"
 // create file
 await fs.writeFile("test.txt", "Hi, Iam Nodejs!")
 
-// read file
-const content= await fs.readFile("test.txt", "utf8")
-console.log(content);
+// append file
+const appendFile = await fs.appendFile("test.txt", "Hi, iam wajahat kamal and iam learning nodejs.")
+
+const readFile = await fs.readFile("test.txt", "utf8")
+console.log(readFile);
