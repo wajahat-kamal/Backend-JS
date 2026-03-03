@@ -10,9 +10,25 @@ promise ki 3 states hoti hai:
  rejected: error agaya
 */
 
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve("Data fetch! successfully");
-    }, 1000);
-})
-promise.then((data) => console.log(data)).catch((err) => console.log(err))
+function promise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data fetch! successfully");
+        }, 1000);
+    })
+}
+// .then & catch method
+promise().then((data) => console.log(data)).catch((err) => console.log(err))
+
+// what is async/await
+// async/await Promise ko handle karne ka clean aur readable tareeqa hai.
+
+async function run() {
+    try {
+        const data = await getData();
+        console.log(data);
+    } catch (err) {
+        console.error(err);
+    }
+}
+run()
