@@ -11,3 +11,10 @@ DELETE → Remove
 */
 
 import http from "node:http"
+
+const server = http.createServer((req, res) => {
+    if (req.url === "/") {
+
+    }
+})
+server.listen(5000, () => console.log("Server runing on port 5000"))
