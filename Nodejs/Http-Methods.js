@@ -13,8 +13,14 @@ DELETE → Remove
 import http from "node:http"
 
 const server = http.createServer((req, res) => {
-    if (req.url === "/") {
-
+    if (req.url === "/user" && req.method === "GET") {
+        res.end("User")
+    } else if (req.url === "/create-user" && req.method === "POST") {
+        res.end("User created")
+    } else if (req.url === "/update-user/1" && req.method === "PUT") {
+        res.end("User updated")
+    } else if (req.url === "/delete-user/1" && req.method === "DELETE") {
+        res.end("User deleted")
     }
 })
 server.listen(5000, () => console.log("Server runing on port 5000"))
