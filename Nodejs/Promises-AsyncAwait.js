@@ -10,3 +10,9 @@ promise ki 3 states hoti hai:
  rejected: error agaya
 */
 
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Data fetch! successfully");
+    }, 1000);
+})
+promise.then((data) => console.log(data))
