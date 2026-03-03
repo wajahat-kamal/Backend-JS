@@ -1,17 +1,7 @@
-// What is fs modules
-/*
-fs ka matlab hai File System module.
-Ye Node.js ka built-in module hai jo files aur folders ke sath kaam karne ke liye use hota hai.
+// What is fs, path and http modules
 
-readFile()    File read
-writeFile()	  File create/overwrite
-appendFile()  Data add karna
-unlink()	  File delete
-mkdir()	      Folder create
-readdir()	  Folder ke files read
-*/
 
-// Modern + Recommended 
+// fs, File System
 import fs from "node:fs/promises"
 
 // create folder
@@ -32,3 +22,17 @@ import fs from "node:fs/promises"
 
 // const readFile = await fs.readFile("files/test.txt", "utf8")
 // console.log(readFile);
+
+
+
+
+// http modules
+import http from "node:http"
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json")
+    res.write("Hello, iam from nodejs!")
+    res.end()
+})
+server.listen(5000, () => console.log("Server running on port 5000!"))
