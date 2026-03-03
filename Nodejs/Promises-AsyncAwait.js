@@ -15,4 +15,4 @@ const promise = new Promise((resolve, reject) => {
         resolve("Data fetch! successfully");
     }, 1000);
 })
-promise.then((data) => console.log(data))
+promise.then((data) => console.log(data)).catch((err) => console.log(err))
