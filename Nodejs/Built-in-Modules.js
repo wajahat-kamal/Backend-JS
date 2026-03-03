@@ -11,7 +11,7 @@ mkdir()	      Folder create
 readdir()	  Folder ke files read
 */
 
-// Modern + Recommended
+// Modern + Recommended 
 import fs from "node:fs/promises"
 
 // create folder
