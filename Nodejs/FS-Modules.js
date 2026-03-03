@@ -15,17 +15,20 @@ readdir()	  Folder ke files read
 import fs from "node:fs/promises"
 
 // create folder
-await fs.mkdir("files", {recursive: true})
+// await fs.mkdir("files", {recursive: true})
 
 // create file
-await fs.writeFile("files/test.txt", "Hi, Iam Wajahat Kamal!")
+// await fs.writeFile("files/test.txt", "Hi, Iam Wajahat Kamal!")
 
 // append file
-await fs.appendFile("files/test.txt", " and iam learning nodejs.")
+// await fs.appendFile("files/test.txt", " and iam learning nodejs.")
 
 // delete file
-// await fs.unlink("test.txt")
+// await fs.unlink("files/test.txt")
 
+// readdir
+// const readDir = await fs.readdir("files")
+// console.log(readDir);
 
-// const readFile = await fs.readFile("test.txt", "utf8")
+// const readFile = await fs.readFile("files/test.txt", "utf8")
 // console.log(readFile);
