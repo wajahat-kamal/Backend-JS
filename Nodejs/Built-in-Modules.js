@@ -1,29 +1,32 @@
 // What is fs, path and http modules
 
 
-// fs, File System
+// fs, File System & path
 import fs from "node:fs/promises"
+import path from "node:path";
 
 // create folder
 // await fs.mkdir("files", {recursive: true})
 
+const filePath = path.join(process.cwd(), "files", "test.txt")
+
 // create file
-// await fs.writeFile("files/test.txt", "Hi, Iam Wajahat Kamal!")
+// await fs.writeFile(filePath, "Hi, Iam Wajahat Kamal!")
 
 // append file
-// await fs.appendFile("files/test.txt", " and iam learning nodejs.")
+// await fs.appendFile(filePath, " and iam learning nodejs.")
 
 // delete file
-// await fs.unlink("files/test.txt")
+// await fs.unlink(filePath)
 
 // readdir
 // const readDir = await fs.readdir("files")
 // console.log(readDir);
 
-// const readFile = await fs.readFile("files/test.txt", "utf8")
+// const readFile = await fs.readFile(filePath, "utf8")
 // console.log(readFile);
 
-
+// console.log(path.extname(filePath));
 
 
 // http modules
@@ -35,4 +38,4 @@ const server = http.createServer((req, res) => {
     res.write("Hello, iam from nodejs!")
     res.end()
 })
-server.listen(5000, () => console.log("Server running on port 5000!"))
+// server.listen(5000, () => console.log("Server running on port 5000!"))
