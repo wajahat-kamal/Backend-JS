@@ -44,5 +44,5 @@ const promise2 = Promise.resolve("Posts")
 const promise3 = Promise.resolve("Comments")
 
 Promise.all([promise1, promise2, promise3])
-    .then((result) => console.log(result))
-    .catch((err) => console.log(err))
+    // .then((result) => console.log(result))
+    // .catch((err) => console.log(err))
