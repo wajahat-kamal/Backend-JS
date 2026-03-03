@@ -1,14 +1,14 @@
-// What is fs, path and http modules
+// fs, path and http modules
 
 
 // fs, File System & path
 import fs from "node:fs/promises"
 import path from "node:path";
 
+const filePath = path.join(process.cwd(), "files", "test.txt")
+
 // create folder
 // await fs.mkdir("files", {recursive: true})
-
-const filePath = path.join(process.cwd(), "files", "test.txt")
 
 // create file
 // await fs.writeFile(filePath, "Hi, Iam Wajahat Kamal!")
