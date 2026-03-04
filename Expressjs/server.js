@@ -14,15 +14,7 @@ app.use((req, res, next) => {
     next();
 })
 
-// Route Params
-app.get("/name/:name", (req, res) => {
-    res.send(req.params.name)
-})
 
-// Query Parameters
-app.get("/users", (req, res) => {
-    res.send(req.query)
-})
 
 app.get("/", (req, res) => {
     res.send("Hello World")
