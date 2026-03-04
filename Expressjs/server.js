@@ -3,8 +3,14 @@ import express from "express";
 const app = express()
 const port = 5000;
 
+// Route Params
 app.get("/:name", (req, res) => {
     res.send(req.params.name)
+})
+
+// Query Parameters
+app.get("/users", (req, res) => {
+    res.send(req.query)
 })
 
 app.get("/", (req, res) => {
