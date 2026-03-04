@@ -4,7 +4,7 @@ const app = express()
 const port = 5000;
 
 // Route Params
-app.get("/:name", (req, res) => {
+app.get("/name/:name", (req, res) => {
     res.send(req.params.name)
 })
 
