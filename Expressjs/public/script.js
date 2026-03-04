@@ -1,6 +1,6 @@
-const button = document.getElementsByClassName("greetBtn")
-const welcome = document.getElementsByClassName("welcome")
+const button = document.getElementById("greetBtn")
+const welcome = document.getElementById("welcome")
 
 button.addEventListener("click", () => {
-    welcome.textContent = "Hi, Wajahat Kamal"
+    welcome.textContent = "Hey, Wajahat! 👋";
 })
