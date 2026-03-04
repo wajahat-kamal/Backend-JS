@@ -5,7 +5,7 @@ const port = 5000;
 
 // Middleware
 app.use((req, res, next) => {
-    console.log(req.url, req.method)
+    console.log(`URL: ${req.url} Method: ${req.method}`)
     next();
 })
 
