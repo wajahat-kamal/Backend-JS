@@ -1,9 +1,13 @@
 import express from "express";
 import router from "./routes.js";
 import { logger } from "./middlewares.js";
+import cors from "cors"
 
 const app = express()
 const port = 5000;
+
+// Third-party Middleware
+app.use(cors())
 
 // Built in Middlewares
 app.use(express.json()) // JSON body ko parse karta hai
