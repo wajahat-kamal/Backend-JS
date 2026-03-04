@@ -8,7 +8,7 @@ const port = 5000;
 
 // Third-party Middleware
 app.use(cors())
-app.set("View engine", "ejs")
+app.set("view engine", "ejs")
 
 // Built in Middlewares
 app.use(express.json()) // JSON body ko parse karta hai
@@ -27,7 +27,7 @@ app.use(logger)
 // Routes 
 app.use("/", router)
 app.get("/", (req, res) => {
-    res.send("Hello World")
+    res.render("index", {name: "Wajahat Kamal"})
 })
 
 app.listen(port, () => console.log(`Server runing on port ${port}`))
