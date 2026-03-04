@@ -14,6 +14,12 @@ app.use(express.json()) // JSON body ko parse karta hai
 app.use(express.urlencoded()) // Form data (HTML se anne wala data) parse karta hai
 app.use(express.static("public")) // static files serve karta hai (HTML, CSS, JS, Images) 
 
+// Error Handling using Middleware
+app.use((err, req, res, next) => {
+    console.log(err.stack);
+    res.status(500).send({ message: err.message })
+})
+
 // Middleware
 app.use(logger)
 
