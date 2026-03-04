@@ -4,7 +4,7 @@ import { logger } from "./middlewares.js";
 import cors from "cors"
 
 const app = express()
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // template engine ejs
 app.set("view engine", "ejs")
