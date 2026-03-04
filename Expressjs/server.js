@@ -8,6 +8,7 @@ const port = 5000;
 
 // Third-party Middleware
 app.use(cors())
+app.set("View engine", "ejs")
 
 // Built in Middlewares
 app.use(express.json()) // JSON body ko parse karta hai
