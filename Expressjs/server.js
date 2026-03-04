@@ -3,6 +3,10 @@ import express from "express";
 const app = express()
 const port = 5000;
 
+app.get("/:name", (req, res) => {
+    res.send(req.params.name)
+})
+
 app.get("/", (req, res) => {
     res.send("Hello World")
 })
