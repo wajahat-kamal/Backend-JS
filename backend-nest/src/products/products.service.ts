@@ -1,0 +1,13 @@
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class ProductsService {
+    private products = [
+        { id: 1, name: "Mobile", price: 40000 },
+        { id: 2, name: "Laptop", price: 80000 },
+        { id: 3, name: "Tablet", price: 30000 },
+    ];
+    getAllProducts() {
+        return this.products
+    }
+}
