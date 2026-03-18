@@ -21,12 +21,11 @@ export class StudentService {
 
     // POST
     createStudent(data: { name: string, age: number }) {
-        if (!data.age || !data.name) return;
-        const newObj = {
+        const newStudent = {
             id: Date.now(),
-            name,
-            age,
+            ...data
         }
-        this.student.push(newObj) 
+        this.student.push(newStudent)
+        return newStudent;
     }
 }
