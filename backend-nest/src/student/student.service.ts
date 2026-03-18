@@ -8,18 +8,25 @@ export class StudentService {
         { id: 3, name: "Khan", age: 18 },
     ]
 
+    // GET
     getAllStudent() {
         return this.student
     }
 
     getStudentById(id: number) {
         const student = this.student.find((st) => st.id === id)
-        if (student) {
-            return student
-        } else {
-            throw new NotFoundException
-        }
+        if (!student) throw new NotFoundException("Student not found")
+        return student
     }
 
-
+    // POST
+    createStudent(data: { name: string, age: number }) {
+        if (!data.age || !data.name) return;
+        const newObj = {
+            id: Date.now(),
+            name,
+            age,
+        }
+        this.student.push(newObj) 
+    }
 }
