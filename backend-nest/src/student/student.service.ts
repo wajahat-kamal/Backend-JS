@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 
-type student = { name: string, age: number }
+export type student = { name: string, age: number }
 
 @Injectable()
 export class StudentService {
@@ -32,7 +32,7 @@ export class StudentService {
     }
 
     // PUT
-    updateStudentAllData(id: number, data: student) {
+    updateStudent(id: number, data: student) {
         const index = this.students.findIndex((st) => st.id === id)
         if (index === -1) throw new NotFoundException("Student not found")
         const updateStudent = this.students[index] = { id, ...data }
