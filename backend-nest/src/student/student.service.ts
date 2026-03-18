@@ -28,4 +28,12 @@ export class StudentService {
         this.student.push(newStudent)
         return newStudent;
     }
+
+    // PUT
+    updateStudentAllData(id: number, data: { name: string, age: number }) {
+        const index = this.student.findIndex((st) => st.id === id)
+        if (index === -1) throw new NotFoundException("Student not found")
+        const updateStudent = this.student[index] = { id, ...data }
+        return updateStudent
+    }
 }
