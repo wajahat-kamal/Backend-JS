@@ -51,6 +51,6 @@ export class StudentService {
         const index = this.students.findIndex((s) => s.id === id)
         if (index === -1) throw new NotFoundException("Student not found")
         const deleted = this.students.splice(index, 1)
-        return { message: "Message Deleted", deleted[0]}
+        return { message: "Message Deleted", student: deleted[0]}
     }
 }
