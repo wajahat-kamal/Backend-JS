@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { StudentService } from './student.service';
-import type { student } from './student.service';
+import { StudentDTO } from 'src/dto/student.dto';
 
 
 @Controller('student')
@@ -18,17 +18,17 @@ export class StudentController {
     }
 
     @Post()
-    create(@Body() body: student) {
+    create(@Body() body: StudentDTO) {
         return this.studentService.createStudent(body)
     }
 
     @Put(":id")
-    update(@Param("id") id: string, @Body() body: student){
+    update(@Param("id") id: string, @Body() body: StudentDTO){
         return this.studentService.updateStudent(Number(id), body)
     }
 
     @Patch(":id")
-    patch(@Param("id") id: string, @Body() body: student){
+    patch(@Param("id") id: string, @Body() body: StudentDTO){
         return this.studentService.patchStudent(Number(id), body)
     }
 
