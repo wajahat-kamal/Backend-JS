@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, UseGuards } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { StudentDTO } from 'src/dto/student.dto';
+import { AuthGuard } from 'src/guards/auth/auth.guard';
 
 
 @Controller('student')
@@ -8,6 +9,7 @@ export class StudentController {
     constructor(private readonly studentService: StudentService) { }
 
     @Get()
+    @UseGuards(AuthGuard)
     getAll() {
         return this.studentService.getAllStudent()
     }
