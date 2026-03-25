@@ -1,9 +1,10 @@
 {
-    "compilerOptions": {
-        "sourceMap": true,
-        "outDir": "dist",
+        "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "target": "ES2023",
         "strict": true,
-        "lib": ["esnext"],
         "esModuleInterop": true,
-    },
+        "ignoreDeprecations": "6.0"
+    }
 }
