@@ -1,13 +1,15 @@
-// async function main() {
-//     const user = await prisma.user.create({
-//         data: {
-//             name: "Wajahat Kamal",
-//             email: "wk@ex.com"
-//         }
-//     })
-//     console.log(user)
-// }
+import { prisma } from "./lib/prisma"
 
-// main()
-//     .catch(console.error)
-//     .finally(() => prisma.$disconnect())
+async function main() {
+    const user = await prisma.user.create({
+        data: {
+            name: "Wajahat Kamal",
+            email: "wk@ex.com"
+        }
+    })
+    console.log(user)
+}
+
+main()
+    .catch(console.error)
+    .finally(() => prisma.$disconnect())
