@@ -19,4 +19,10 @@ export class UsersService {
         if (!user) throw new NotFoundException(`User with id ${id} not found`);
         return user
     }
+
+    createUser(body: { name: string, age: number }) {
+        const newUser = { id: 4, ...body }
+        this.users.push(newUser)
+        return {message: "User Created!", newUser};
+    }
 }
