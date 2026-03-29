@@ -1,35 +1,39 @@
+// users.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
-
-export interface User { id: number; name: string; age: number };
 
 @Injectable()
 export class UsersService {
-    private users: User[] = [
-        { id: 1, name: "wajahat", age: 16 },
-        { id: 2, name: "kamal", age: 15 },
-        { id: 3, name: "khan", age: 14 },
+    private users = [
+        { id: 1, name: 'Ali', email: 'ali@gmail.com' },
+        { id: 2, name: 'Sara', email: 'sara@gmail.com' },
     ];
 
-    getAllUsers(): User[] {
+    findAll() {
         return this.users;
     }
 
-    getUserById(id: number) {
-        const user = this.users.find((user) => user.id === id)
-        if (!user) throw new NotFoundException(`User with id ${id} not found`);
-        return user
+    findOne(id: number) {
+        const user = this.users.find(u => u.id === id);
+        if (!user) throw new NotFoundException(`User ${id} nahi mila!`);
+        return user;
     }
 
-    createUser(body: { name: string, age: number }) {
-        const newUser = { id: Date.now(), ...body }
-        this.users.push(newUser)
-        return { message: "User Created!", newUser };
+    create(data: { name: string; email: string }) {
+        const newUser = { id: Date.now(), ...data };
+        this.users.push(newUser);
+        return newUser;
     }
 
-    deleteUser(id) {
-        const index = this.users.findIndex((u) => u.id !== id)
-        const user = this.users.find((u) => u.id === id)
-        this.users.splice(index, 1)
-        return { message: "User Deleted!", user }
+    update(id: number, data: Partial<{ name: string; email: string }>) {
+        const user = this.findOne(id);
+        Object.assign(user, data);
+        return user;
+    }
+
+    remove(id: number) {
+        const index = this.users.findIndex(u => u.id === id);
+        if (index === -1) throw new NotFoundException(`User ${id} nahi mila!`);
+        this.users.splice(index, 1);
+        return { message: 'User delete ho gaya!' };
     }
 }
