@@ -21,15 +21,15 @@ export class UsersService {
     }
 
     createUser(body: { name: string, age: number }) {
-        const newUser = { id: 4, ...body }
+        const newUser = { id: Date.now(), ...body }
         this.users.push(newUser)
         return { message: "User Created!", newUser };
     }
 
     deleteUser(id) {
-        const index = this.users.findIndex((u) => u.id === id)
+        const index = this.users.findIndex((u) => u.id !== id)
+        const user = this.users.find((u) => u.id === id)
         this.users.splice(index, 1)
-        const user = this.getUserById(id)
-        return {message: "User Deleted!", user}
+        return { message: "User Deleted!", user }
     }
 }
